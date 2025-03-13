@@ -33,25 +33,26 @@
                         Update User
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('user/update') }}" method="POST">
+                        <!-- Update User Form -->
+                        <form action="{{ url('userUpdate') }}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{ $user->id }}">
-
+                            <!-- User Name -->
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" value="{{ $user->name}}">
+                                <input type="text" name="username" class="form-control" value="{{ $user->name}}">
                             </div>
-
+                            <!-- User Email -->
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" name="email" class="form-control" value="{{ $user->email}}">
                             </div>
-
+                            <!-- User Password -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" name="password" class="form-control">
                             </div>
-                           
+                            <!-- Update User Button -->
                             <div>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-plus me-2"></i>Update User
@@ -64,20 +65,25 @@
                         New User
                     </div>
                     <div class="card-body">
-                        <form action="user/create" method="POST">
+                        <!-- New User Form -->
+                        <form action="userCreate" method="POST">
                             @csrf
+                            <!-- User Name -->
                             <div class="mb-3">
                                 <label for="name" class="form-label">User</label>
-                                <input type="text" name="name" id="name" class="form-control" value="">
+                                <input type="text" name="username" id="name" class="form-control" value="">
                             </div>
+                            <!-- User Email -->
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="email" name="email" class="form-control" value="">
                             </div>
+                            <!-- User Password -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" name="password" class="form-control">
                             </div>
+                            <!-- Add User Button -->
                             <div>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-plus me-2"></i>Add User
@@ -88,6 +94,7 @@
                 @endif
             </div>
 
+            <!-- Display Current Users -->
             <div class="card">
                 <div class="card-header">
                     Current Users
@@ -106,14 +113,16 @@
                                     <td>{{ $user->name }}</td>
                                     <td>
 
-                                        <form action="/user/edit/{{ $user->id }}" method="POST" class="d-inline">
+                                        <!-- Form for Editing User -->
+                                        <form action="/userEdit/{{ $user->id }}" method="POST" class="d-inline">
                                             @csrf
                                             <button type="submit" class="btn btn-info btn-sm">
                                                 <i class="fas fa-edit me-1"></i>Edit
                                             </button>
                                         </form>
 
-                                        <form action="/user/delete/{{ $user->id }}" method="POST" class="d-inline">
+                                        <!-- Form for Deleting User -->
+                                        <form action="/userDelete/{{ $user->id }}" method="POST" class="d-inline">
                                             @csrf
                                             <button type="submit" class="btn btn-danger btn-sm">
                                                 <i class="fas fa-trash me-1"></i>Delete

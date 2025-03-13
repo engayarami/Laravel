@@ -7,7 +7,6 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/about', function(){
     $name='Aya';
     $departments = [
@@ -42,10 +41,10 @@ Route::get('app', function(){
 
 // User Routes
 Route::get('users', [UserController::class, 'index']);
-Route::post('user/create', [UserController::class, 'create']);
-Route::post('user/delete/{id}', [UserController::class, 'destroy']);
-Route::post('user/edit/{id}', [UserController::class, 'edit']);
-Route::post('user/update', [UserController::class, 'update']);
+Route::post('userCreate', [UserController::class, 'userCreate']);
+Route::post('userDelete/{id}', [UserController::class, 'userDestroy']);
+Route::post('userEdit/{id}', [UserController::class, 'usEredit']);
+Route::post('userUpdate', [UserController::class, 'userUpdate']);
 
 Route::get('app', function(){
     return view('layouts.app');
